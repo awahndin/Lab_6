@@ -5,10 +5,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-
 import base.GameRuleCardsDAL;
 import base.GameRuleDAL;
 import domain.GameRuleCardsDomainModel;

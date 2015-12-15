@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.UUID;
 
 import javax.xml.bind.annotation.XmlElement;
-
 import org.apache.commons.math3.util.CombinatoricsUtils;
 
 import domain.HandDomainModel;

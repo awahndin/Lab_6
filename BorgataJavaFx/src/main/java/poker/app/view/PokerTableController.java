@@ -76,10 +76,10 @@ public class PokerTableController {
 	private ImageView imgTransCardP4 = new ImageView();
 	private ImageView imgTransCardCommon = new ImageView();
 	
-	private static Rule rle = new Rule(eGame.FiveStud);
+	private static GameRuleDomainModel gr;
 
-	public static void setRle(Rule rle) {
-		PokerTableController.rle = rle;
+	public static void setRle(GameRuleDomainModel gr) {
+		PokerTableController.gr = gr;
 	}
 
 	@FXML
@@ -305,7 +305,7 @@ public class PokerTableController {
 		DealFaceDownCards(gme.getRule().getCOMMUNITYCARDSMAX(), 0);
 
 		// Add a deck to the game
-		gme.setGameDeck(new Deck(rle.GetNumberOfJokers(), rle.GetRuleCards()));
+		gme.setGameDeck(new Deck(gr.getNUMBEROFJOKERS(), gr.getRULEID()));
 
 		// Call common code to set the game controls
 		SetGameControls(eGameState);
@@ -528,7 +528,7 @@ public class PokerTableController {
 			}
 		}
 		
-		if(rle.GetCommunityCardsCount() > 0) {
+		if(gr.getCOMMUNITYCARDSMAX() > 0) {
 			for(int i = 0; i < winningHand.getCardsInHand().size(); i++) {
 				for(int q = 0; q < communityC.getCardsInHand().size(); q++) {
 					if(winningHand.GetCardFromHand(i) == communityC.GetCardFromHand(q)) {
